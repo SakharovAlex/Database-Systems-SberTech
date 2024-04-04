@@ -1,0 +1,42 @@
+version: "3.8"
+name: redisdbnew
+networks:
+  redis-network:
+    name: redis-network
+    driver: bridge
+
+services:
+  first:
+    container_name: first
+    image: redis:latest
+    hostname: first
+    ports:
+      - 8001:8001
+    command: redis-server --port 8001 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes
+    networks:
+      - redis-network
+    restart: always
+
+  second:
+    container_name: second
+    image: redis:latest
+    hostname: second
+    ports:
+      - 8002:8002
+    command: redis-server --port 8002 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes
+    networks:
+      - redis-network
+    restart: always
+
+  third:
+    container_name: third
+    image: redis:latest
+    hostname: third
+    ports:
+      - 8003:8003
+    command: redis-server --port 8003 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000 --appendonly yes
+    networks:
+      - redis-network
+    restart: always
+
+  
