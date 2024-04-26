@@ -21,7 +21,7 @@ http://admin:password@localhost:5984/my_db
 
 #### Открыл html и нажал кнопку sync
 <image src="./screenshots/HtmlSync.png">
-###### Убедился, что отобразилась моя фамилия
+Убедился, что отобразилась моя фамилия
 
 #### Остановил контейнер с couchdb
 <image src="./screenshots/CouchDBStop.png">
